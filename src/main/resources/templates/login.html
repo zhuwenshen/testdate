@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="/static/jquery-3.3.1.js"></script>
+    <script src="/static/jquery.form.js"></script>
+</head>
+<body>
+<h1>登录</h1>
+<form method="post" action="login" id="loginForm">
+用户名：<input type="text" id="name" name="name" /> <br />
+密码：<input type="text" id="password" name="password" /> <br />
+<input type="button" value="登录" onclick="loginPost();"> <br />
+</form>
+<script type="application/javascript">
+
+    function loginPost(){
+        $.post(
+            "login",
+            $("#loginForm").serialize(),
+            function(obj){
+                console.log(obj);
+                //var obj=$.parseJSON(data);
+                if(obj.status){
+                    alert(obj.msg);
+                    window.location.href = "/index";
+                }else{
+                    alert(obj.msg);
+                }
+            }
+
+
+        );
+    }
+</script>
+</body>
+</html>

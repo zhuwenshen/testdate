@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+#设置上传文件的参数
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50Mb
+      max-request-size: 50Mb
+#配置thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  mvc.static-path-pattern: /static/**
